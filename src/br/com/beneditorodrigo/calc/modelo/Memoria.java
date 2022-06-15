@@ -6,7 +6,7 @@ import java.util.List;
 public class Memoria {
 
 	private enum TipoComando {
-		ZERAR, NUMERO, DIV, MULT, SUB, SOMA, IGUAL, VIRGULA;
+		ZERAR, SINAL, NUMERO, DIV, MULT, SUB, SOMA, IGUAL, VIRGULA;
 	}
 
 	private static final Memoria instancia = new Memoria();
@@ -60,7 +60,7 @@ public class Memoria {
 	}
 
 	private String obterResultadoOperacao() {
-		if(ultimaOperacao == null) {
+		if(ultimaOperacao == null || ultimaOperacao == TipoComando.IGUAL) {
 			return textoAtual;
 		}
 		
